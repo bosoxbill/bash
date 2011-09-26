@@ -20,3 +20,5 @@ In the [clonedir]/.vim directory
 
     $ git submodule init
     $ git submodule update
+
+TODO: http://jeetworks.org/node/10
