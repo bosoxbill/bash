@@ -1,11 +1,12 @@
 # fs-manipulation 
+alias ls='ls'
 alias ll='ls -alt'
 alias la='ls -A'
 alias l='ls -CF'
-alias free="free -m"
+alias free='free -m'
 
 # vim aliases
-alias m="mvim"
+alias m='mvim'
 
 # Git aliases
 alias gs='git status'
