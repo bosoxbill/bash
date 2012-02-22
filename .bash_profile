@@ -52,7 +52,7 @@ complete -W "#(echo `grep -e '^Host ' ~/.ssh/config | cut -f 2 -d ' '`)" ssh
 
 # prompt
 
-export PS1="\n\[${LtGray}\]# \!, \t \$(__git_ps1 \" \[${BPurple}\](%s)\")\n \[${BGreen}\]\w \[${BIYellow}\] ᔩ ⚡ ⚚  \[${Color_Off}\]"
+export PS1="\n\[${LtGray}\]# \!, \t \$(__git_ps1 \" \[${BPurple}\](%s)\")\n \[${BGreen}\]\w \[${BIYellow}\] ᔩ ⚡ \[${Color_Off}\]"
 
 #coreutils aliases - note this must come late, as coreutils can conflict with others - see https://gist.github.com/mxcl/homebrew/issues/2867
 source /usr/local/Cellar/coreutils/8.10/aliases
