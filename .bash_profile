@@ -27,8 +27,10 @@ export CLICOLOR=1
 
 export EDITOR="vim"
 export FCEDIT="vim"
+export CC=/usr/bin/gcc-4.2
 
-# And bash completion from brew
+#And bash completion from brew
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
