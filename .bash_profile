@@ -64,4 +64,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+[[ -s "/Users/wdesmarais/.rvm/scripts/rvm" ]] && source "/Users/wdesmarais/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 [[ -s "/Users/bdesmarais/.rvm/scripts/rvm" ]] && source "/Users/bdesmarais/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -s ~/.bashrc ]] && source ~/.bashrc
