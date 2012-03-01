@@ -23,6 +23,8 @@ alias grep='grep --color=auto'
 alias rgrep='grep -r'
 
 alias be='bundle exec'
+alias r="rake"
+alias lc="rake log:clear"
 
 alias rspec='rspec --color'
 

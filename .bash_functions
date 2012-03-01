@@ -22,3 +22,11 @@ extract() {
       echo "'$1' is not a valid file"
   fi
 }
+
+rt(){
+    rake test TEST=$1;
+}
+
+rtt(){
+    ruby -I "test:lib" $1 -n test_$2;
+}
