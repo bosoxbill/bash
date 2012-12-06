@@ -12,11 +12,19 @@ alias m='mvim'
 alias gs='git status'
 alias gru='git remote update'
 alias grom='git rebase origin/master'
+alias grod='git rebase origin/develop'
 alias grup='git remote update -p'
+alias stale='git branch -r --merged develop | xargs -L 1 -I {} git log -1 --format="%cn last committed to {} %cr" {} | egrep -v "master|release|origin/develop"'
+alias my_stale='stale | grep -i desmarais'
+alias push='git push -u'
+
 
 #gitx 
 alias gitx='gitx --all'
 alias git-reflog='gitx --all `git reflog | cut -c1-7`'
+
+#love/lua
+alias love='/Applications/love.app/Contents/MacOS/love'
 
 #misc
 alias grep='grep --color=auto'
@@ -28,6 +36,6 @@ alias lc="rake log:clear"
 
 alias rspec='rspec --color'
 
-alias prov='cd ~/work/proventys'
+alias cm2='cd ~/work/where/campaign_manager'
 alias wit='cd ~/work/witsaid'
 alias pils='cd ~/work/pilsen'

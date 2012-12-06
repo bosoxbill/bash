@@ -18,7 +18,7 @@ shopt -s histappend
 
 export HISTFILESIZE=100000
 export HISTSIZE=100000
-
+export JRUBY_OPTS=--1.9
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -35,6 +35,10 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
+    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+fi
+
 if [ -f ~/.bash_colors ]; then
   . ~/.bash_colors
 fi
@@ -44,7 +48,10 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 # git autocomplete
-#source /usr/local/etc/bash_completion.d/git-completion.bash
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
 complete -o default -o nospace -F _git_checkout gco
 complete -o default -o nospace -F _git_remote gru
 GIT_PS1_SHOWDIRTYSTATE=true
