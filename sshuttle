@@ -1,0 +1,106 @@
+print_usage(){
+  echo "Usage:"
+  echo "$0 root@sshhost.com [<hostnames,>]"
+  echo "Add hosts to a whitelist file at ~/.sshuttle for them to be"
+  echo "included automatically."
+  exit 1
+}
+
+not_found(){
+  echo "Fail: $1 not found in your path"
+  exit 1
+}
+
+find_sshuttle(){
+  if [ -x $SSHUTTLE_PATH ]; then
+    sshuttle=$SSHUTTLE_PATH
+  else
+    sshuttle=`which sshuttle`
+  fi
+  [ $sshuttle ] || not_found "sshuttle"    
+}
+
+lookup(){
+  local ips=`dig +short $1 | paste -sd' ' -`
+  if [ "$2" = '1' ]; then
+    echo `echo $ips | cut -f 1 -d' '`
+  else
+    echo $ips
+  fi
+}
+
+join_args(){
+  [ $# -eq 1 ] && echo $1 && return
+  local cat_string=$1
+  for var in ${@:2}; do
+    [ "$var" ] && cat_string=$cat_string' '$var
+  done
+  echo $cat_string
+}
+
+process_whitelist(){
+  local whitelist=""
+  [ -f "$HOME/.sshuttle" ] || return
+  file=($(cat $HOME/.sshuttle))
+  for host in "${file[@]}"; do
+    if [ "$host" ]; then
+      local lookup=`lookup $host`
+      [ "$lookup" ] && whitelist=`join_args $whitelist $lookup`
+    fi
+  done
+  echo $whitelist
+}
+
+ip_regex='([0-9]{1,3}.){3}[0-9]{1,3}$'
+
+find_sshuttle
+
+[ $# -gt 0 ] || print_usage
+
+if [ "$1" == "kill" ] && [ -s "$HOME/sshuttle.pid" ]; then
+  spid=`cat "$HOME/sshuttle.pid"`
+  echo "Killing sshuttle [$spid] ..."
+  kill $spid > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo "Successful."
+    exit 0
+  else
+    echo "Failed. You got a bad PID file, bro."
+    rm "$HOME/sshuttle.pid"
+    [ $? -eq 0 ] && echo "No worries; I removed it for you cuz we rainbros."
+    exit 6
+  fi
+fi
+
+[ -s "$HOME/sshuttle.pid" ] && echo "sshuttle.pid file exists. Kill it with fire first. Bailing." && exit 5
+
+whitelist_ips=`process_whitelist`
+
+ssh=$1
+shift
+ips=$whitelist_ips
+while (("$#")); do
+  ip=`lookup $1`
+  if [ "$ip" ]; then
+    echo "$1 : $(echo $ip | cut -f 1 -d' ')"
+    ips=`join_args "$ips" "$ip"`
+  fi
+  shift
+done
+
+if [ ! "$ips" ]; then
+  echo "No IPs determined. Bailing."
+  exit 3
+fi
+
+echo 'Starting sshuttle daemon ...'
+$sshuttle -D --dns -r $ssh $ips --pidfile="$HOME/sshuttle.pid"
+if [ $? -ne 0 ]; then
+  Echo "Something went wrong with sshuttle. Sorry, bro."
+  exit 4
+fi
+while [ ! -f "$HOME/sshuttle.pid" ]; do
+  sleep 1
+done
+sshuttle_pid=`cat "$HOME/sshuttle.pid"`
+echo "sshuttle PID [$sshuttle_pid] written to ~/sshuttle.pid"
