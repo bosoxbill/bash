@@ -1,8 +1,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PATH=$PATH:~/bin
-PATH=$PATH:~/work/proventys/terminology-server/bin
+PATH=:/usr/local/bin:$PATH:~/bin
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -61,7 +60,7 @@ complete -W "#(echo `grep -e '^Host ' ~/.ssh/config | cut -f 2 -d ' '`)" ssh
 
 # prompt
 
-export PS1="\n\[${LtGray}\]# \!, \t \$(__git_ps1 \" \[${BPurple}\](%s)\")\n \[${BGreen}\]\w \[${BIYellow}\] ᔩ ⚡ \[${Color_Off}\]"
+export PS1="\n\[${LtGray}\]# \!, \t \$(__git_ps1 \" \[${BPurple}\](%s)\")\n \[${BGreen}\]\w \[${BIYellow}\] ᔩ ⚡ \[${Color_Off}\] "
 
 #my own aliases
 if [ -f ~/.bash_aliases ]; then
