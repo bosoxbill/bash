@@ -58,7 +58,9 @@ complete -o default -o nospace -F _git_remote gru
 GIT_PS1_SHOWDIRTYSTATE=true
 
 # ssh autocomplete
-complete -W "#(echo `grep -e '^Host ' ~/.ssh/config | cut -f 2 -d ' '`)" ssh
+if [ -f ~/.ssh/config ]; then
+  complete -W "#(echo `grep -e '^Host ' ~/.ssh/config | cut -f 2 -d ' '`)" ssh
+fi
 
 # prompt
 
