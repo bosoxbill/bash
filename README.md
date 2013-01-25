@@ -10,9 +10,4 @@ Set this up by cloning it somethwere - [clonedir]
     $ ln -s [clonedir]/.gitconfig ~/.gitconfig
     $ ln -s [clonedir]/sshuttle ~/sshuttle
 
-In [clonedir]
-
-    $ git submodule init
-    $ git submodule update
-
 TODO: http://jeetworks.org/node/10
