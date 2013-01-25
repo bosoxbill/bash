@@ -28,14 +28,16 @@ export EDITOR="vim"
 export FCEDIT="vim"
 export CC=/usr/bin/gcc-4.2
 
-#And bash completion from brew
+#And bash completion from brew, if it exists
+type brew &> /dev/null ;
+if [ $? -eq 0 ]; then 
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+  fi
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
-if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
-    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+  if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
+      . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+  fi
 fi
 
 if [ -f ~/.bash_colors ]; then
