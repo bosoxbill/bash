@@ -26,7 +26,6 @@ export CLICOLOR=1
 
 export EDITOR="vim"
 export FCEDIT="vim"
-export CC=/usr/bin/gcc-4.2
 
 #And bash completion from brew, if it exists
 type brew &> /dev/null ;
@@ -72,6 +71,5 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 [[ -s "/Users/wdesmarais/.rvm/scripts/rvm" ]] && source "/Users/wdesmarais/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-[[ -s "/Users/bdesmarais/.rvm/scripts/rvm" ]] && source "/Users/bdesmarais/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 [[ -s ~/.bashrc ]] && source ~/.bashrc
