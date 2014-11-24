@@ -3,6 +3,11 @@
 
 PATH=:/usr/local/bin:$PATH:~/bin
 
+#go setup mac
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/work/go
+export PATH=$PATH:$GOPATH/bin
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -50,6 +55,11 @@ fi
 # git autocomplete
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
+# go autocomplete
+if [ -f /usr/local/etc/bash_completion.d ]; then
+    . /usr/local/etc/bash_completion.d
 fi
 
 complete -o default -o nospace -F _git_checkout gco
