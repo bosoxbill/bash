@@ -1,9 +1,3 @@
 [user]
 	name = Bill Desmarais
 	email = bill@where.com
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-[push]
-	default = simple
