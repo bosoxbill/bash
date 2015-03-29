@@ -3,7 +3,7 @@
 git submodule update --init --recursive
 
 my_dir=${PWD}
-link_filenames=(.bash_aliases .bash_colors .bash_functions .bash_profile .git .gitconfig .gitmodules .gemrc sshuttle)
+link_filenames=(.bash_aliases .bash_colors .bash_functions .bash_profile .gitconfig .gitmodules .gemrc sshuttle)
 
 for file in ${link_filenames[*]}; do
 
