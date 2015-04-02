@@ -14,3 +14,4 @@ done
 ln -sf "${my_dir}/.bash_profile" "$HOME/.profile"
 
 ./.vim/setup.sh
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
