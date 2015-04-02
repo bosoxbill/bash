@@ -13,4 +13,4 @@ done
 
 ln -sf "${my_dir}/.bash_profile" "$HOME/.profile"
 
-./vim/setup.sh
+./.vim/setup.sh
