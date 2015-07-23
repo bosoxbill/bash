@@ -82,4 +82,11 @@ fi
 
 [[ -s "/Users/wdesmarais/.rvm/scripts/rvm" ]] && source "/Users/wdesmarais/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
+eval "$(rbenv init -)"
+if which rbenv > /dev/null; then 
+  eval "$(rbenv init -)"; 
+fi
+
+eval `boot2docker shellinit 2>/dev/null`
+
 [[ -s ~/.bashrc ]] && source ~/.bashrc

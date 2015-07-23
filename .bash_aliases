@@ -39,3 +39,6 @@ alias rspec='rspec --color'
 alias cm2='cd ~/work/where/campaign_manager'
 alias wit='cd ~/work/witsaid'
 alias pils='cd ~/work/pilsen'
+alias wellist='cd ~/work/wellist'
+
+alias comp="docker-compose"

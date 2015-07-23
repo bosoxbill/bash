@@ -1,3 +1,7 @@
 [user]
 	name = Bill Desmarais
 	email = bill@wellist.com
+[push]
+	default = matching
+[alias]
+  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
