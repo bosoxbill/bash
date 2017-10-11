@@ -7,6 +7,7 @@ alias free='free -m'
 
 # vim aliases
 alias m='mvim'
+alias e='emacs'
 
 # Git aliases
 alias gs='git status'
@@ -36,9 +37,10 @@ alias lc="rake log:clear"
 
 alias rspec='rspec --color'
 
-alias cm2='cd ~/work/where/campaign_manager'
 alias wit='cd ~/work/witsaid'
 alias pils='cd ~/work/pilsen'
 alias wellist='cd ~/work/wellist'
 
 alias comp="docker-compose"
+
+alias pg_reboot="rm /usr/local/var/postgres/postmaster.pid"

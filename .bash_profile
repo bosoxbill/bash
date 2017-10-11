@@ -22,7 +22,8 @@ shopt -s histappend
 
 export HISTFILESIZE=100000
 export HISTSIZE=100000
-export JRUBY_OPTS=--1.9
+export ANSIBLE_NOCOWS=1
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 

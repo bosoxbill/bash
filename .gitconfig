@@ -5,3 +5,9 @@
 	default = matching
 [alias]
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+	g = grep --break --heading --line-number
+[grep]
+	lineNumber = true
+	extendRegexp = true
+[merge]
+	conflictstyle = diff3
