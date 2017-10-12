@@ -8,6 +8,9 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=$HOME/work/go
 export PATH=$PATH:$GOPATH/bin
 
+#python setup mac
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -32,6 +35,11 @@ export CLICOLOR=1
 
 export EDITOR="vim"
 export FCEDIT="vim"
+
+#npm setup
+if [ -f ~/.npmrc ]; then
+  export NPM_TOKEN=`sed -n '2p' ~/.npmrc | cut -d '=' -f 2`
+fi
 
 #And bash completion from brew, if it exists
 type brew &> /dev/null ;
