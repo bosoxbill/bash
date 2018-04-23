@@ -16,6 +16,9 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+# kuuuuuuuubernetes
+export KOPS_STATE_STORE=s3://wellist-kubernetes
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -81,7 +84,6 @@ if [ -f ~/.ssh/config ]; then
 fi
 
 # prompt
-
 export PS1="\n\[${LtGray}\]# \!, \t \$(__git_ps1 \" \[${BPurple}\](%s)\")\n \[${BGreen}\]\w \[${BIYellow}\] ᔩ ⚡ \[${Color_Off}\] "
 
 #my own aliases
@@ -95,6 +97,11 @@ eval "$(rbenv init -)"
 if which rbenv > /dev/null; then 
   eval "$(rbenv init -)"; 
 fi
+
+#NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval `boot2docker shellinit 2>/dev/null`
 

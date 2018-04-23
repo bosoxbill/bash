@@ -34,6 +34,7 @@ alias rgrep='grep -r'
 alias be='bundle exec'
 alias r="rake"
 alias lc="rake log:clear"
+alias rof='be rake SPEC_OPTS="--only-failures"'
 
 alias rspec='rspec --color'
 
