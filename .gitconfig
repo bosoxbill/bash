@@ -1,6 +1,6 @@
 [user]
 	name = Bill Desmarais
-	email = bill@wellist.com
+	email = bill@outcomes4me.com
 [push]
 	default = matching
 [alias]
@@ -11,3 +11,7 @@
 	extendRegexp = true
 [merge]
 	conflictstyle = diff3
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true

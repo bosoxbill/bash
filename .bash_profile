@@ -10,6 +10,9 @@ export PATH=$PATH:$GOPATH/bin
 
 #python setup mac
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
